@@ -12,7 +12,6 @@ Controller.prototype.initialiseSea = function initialiseSea() {
 
     function switchingImg() {
         document.querySelector("#viewport").style.backgroundImage = `url('${backgroundImg[backgroundIndex % backgroundImg.length]}')`;
-        // document.querySelector("#viewport").style.backgroundImage = "url(backgroundImg[backgroundIndex % backgroundImg.length])";
         backgroundIndex += 1;
     };
     
