@@ -20,7 +20,7 @@
     // otherwise we attach the Port object to the window object
     if (typeof module !== 'undefined' && module.exports) {
         module.exports = Port;
-      } else {
+    } else {
         window.Port = Port;
-      }
+    };
 }());
