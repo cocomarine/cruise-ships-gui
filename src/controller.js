@@ -36,6 +36,14 @@
                 portsElement.style.width = `${portsElementWidth + 256}px`;
 
             });
+        },
+        renderShip(ship) {
+            const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
+            const portElement = document.querySelector(`[data-port-index='${currentPortIndex}']`);
+            
+            const shipElement = document.querySelector('#ship');
+            shipElement.style.top = `${portElement.offsetTop + 20}px`;
+            shipElement.style.left = `${portElement.offsetLeft - 32}px`;
         }
     };
     
