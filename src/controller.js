@@ -1,6 +1,7 @@
 (function exportController () {
-    function Controller () {
-    this.initialiseSea();
+    function Controller (ship) {
+        this.ship = ship;
+        this.initialiseSea();
     };  
 
     Controller.prototype = {
@@ -37,7 +38,8 @@
 
             });
         },
-        renderShip(ship) {
+        renderShip() {
+            const ship = this.ship;
             const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
             const portElement = document.querySelector(`[data-port-index='${currentPortIndex}']`);
             
