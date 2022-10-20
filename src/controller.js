@@ -46,12 +46,31 @@
             const ship = this.ship;
             const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
             const portElement = document.querySelector(`[data-port-index='${currentPortIndex}']`);
-            
+
             const shipElement = document.querySelector('#ship');
             shipElement.style.top = `${portElement.offsetTop + 20}px`;
             shipElement.style.left = `${portElement.offsetLeft - 32}px`;
         },
-        setSail() {}
+        setSail() {
+            const ship = this.ship;
+            const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
+            const nextPortElement = document.querySelector(`[data-port-index='${currentPortIndex + 1}']`);
+
+            if (!nextPortElement) {
+                return alert("End of the line!");
+            }
+
+            const shipElement = document.querySelector('#ship');
+            const sailInterval = setInterval(() => {
+                const shipLeft = parseInt(shipElement.style.left, 10);
+                if (shipLeft === (nextPortElement.offsetLeft - 32)) {
+                    ship.setSail();
+                    ship.dock();
+                    clearInterval(sailInterval);
+                }
+                shipElement.style.left = `${shipLeft + 1}px`;
+            }, 20);
+        }
     };
     
     if (typeof module !== 'undefined' && module.exports) {
