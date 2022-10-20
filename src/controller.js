@@ -2,6 +2,10 @@
     function Controller (ship) {
         this.ship = ship;
         this.initialiseSea();
+        
+        document.querySelector('#sailbutton').addEventListener('click', () => {
+            this.setSail();
+        });
     };  
 
     Controller.prototype = {
@@ -46,7 +50,8 @@
             const shipElement = document.querySelector('#ship');
             shipElement.style.top = `${portElement.offsetTop + 20}px`;
             shipElement.style.left = `${portElement.offsetLeft - 32}px`;
-        }
+        },
+        setSail() {}
     };
     
     if (typeof module !== 'undefined' && module.exports) {
