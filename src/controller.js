@@ -79,11 +79,12 @@
             messageElement.id = 'message';
             messageElement.innerHTML = message;
 
-            const viewport = document.querySelector("#viewport");
-            viewport.appendChild(messageElement);
+            const divMessage = document.querySelector("#divMessage");
+            divMessage.appendChild(messageElement);
+
 
             setTimeout(() => {
-                viewport.removeChild(messageElement);
+                divMessage.removeChild(messageElement);
             }, 2000);
         }
     };
