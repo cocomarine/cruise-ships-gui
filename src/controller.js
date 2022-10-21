@@ -70,6 +70,14 @@
                 }
                 shipElement.style.left = `${shipLeft + 1}px`;
             }, 20);
+        },
+        renderMessage(message) {
+            const messageElement = document.createElement('div');
+            messageElement.id = 'message';
+            messageElement.innerHTML = mssage;
+
+            const viewport = document.querySelector("#viewport");
+            viewport.appendChild(messageElement);
         }
     };
     
