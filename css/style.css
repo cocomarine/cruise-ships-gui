@@ -84,3 +84,13 @@ body {
     width: 640px;
     font-family: 'Press Start 2P', cursive;
 }
+
+#headsup-display {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: white;
+    text-align: right;
+    line-height: 2;
+    font-family: 'Press Start 2P', cursive;
+}

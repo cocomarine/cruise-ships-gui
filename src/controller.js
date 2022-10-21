@@ -41,6 +41,11 @@
                 portsElement.style.width = `${portsElementWidth + 256}px`;
 
             });
+
+            const ship = this.ship;
+            const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
+            const nextPort = ship.itinerary.ports[currentPortIndex + 1]
+            this.headsupDisplay(`Current port: ${ship.currentPort.name}`, `Next port: ${nextPort.name}`);
         },
         renderShip() {
             const ship = this.ship;
@@ -69,6 +74,13 @@
                     ship.setSail();
                     ship.dock();
                     this.renderMessage(`Now arrived at ${ship.currentPort.name}`);
+                    
+                    const nextPortIndex = ship.itinerary.ports.indexOf(ship.currentPort) + 1;
+                    if (nextPortIndex < ship.itinerary.ports.length) {
+                        this.headsupDisplay(`Current port: ${ship.currentPort.name}`, `Next port: ${ship.itinerary.ports[nextPortIndex].name}`);
+                    } else {
+                        this.headsupDisplay(`Current port: ${ship.currentPort.name}`, 'End of the Line');
+                    };
                     clearInterval(sailInterval);
                 }
                 shipElement.style.left = `${shipLeft + 1}px`;
@@ -86,6 +98,13 @@
             setTimeout(() => {
                 divMessage.removeChild(messageElement);
             }, 2000);
+        },
+        headsupDisplay(message1, message2) {
+            const currentportMessage = document.querySelector("#current-port-message");
+            const nextportMessage = document.querySelector("#next-port-message");
+
+            currentportMessage.innerHTML = message1;
+            nextportMessage.innerHTML = message2;
         }
     };
     
