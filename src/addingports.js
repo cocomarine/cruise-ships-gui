@@ -1,4 +1,3 @@
-const form = document.querySelector('#port-form');
 const inputPort = document.querySelector('#port-name');
 const addPort = document.querySelector('#add-button');
 const setItinerary = document.querySelector('#itin-button')
@@ -15,12 +14,11 @@ addPort.addEventListener('click', (event) => {
     const port = new Port(inputPort.value);
     itinerary.ports.push(port);
 
-    // preventing form from submitting
     event.preventDefault();
     } 
 });
 
-setItinerary.addEventListener('click', () => {
+setItinerary.addEventListener('click', (event) => {
     
     if (itinerary.ports.length == 0) {
         eMsg.innerHTML = 'Input ports before setting itinerary.'
@@ -34,5 +32,5 @@ setItinerary.addEventListener('click', () => {
         controller.renderPorts(itinerary.ports);
         controller.renderShip();
     }
-
+    event.preventDefault();
 });
