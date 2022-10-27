@@ -16,6 +16,8 @@
         <label for="name">Add Port</label>
         <input type="text" name="port-name" id="port-name" placeholder="Port Name" required />
         <button type="button" id="add-button">Add</button>
+        <button type="button" id="itin-button">Set</button>
+        <small id="error-message"></small>
     </form>
     <div id="headsup-display">
         <div id="current-port-message"></div>
@@ -33,22 +35,17 @@
         </div>
     </div>
 
+    <script src="src/addingports.js"></script>
     <script src="src/controller.js"></script>
     <script src="src/port.js"></script>
     <script src="src/itinerary.js"></script>
     <script src="src/ship.js"></script>
     <script>
-        const itinerary = new Itinerary([
-            new Port('Barcelona'),
-            new Port('Ibiza'),
-            new Port('Mallorca'),
-            new Port('Toulon')
-        ]);
-        const ship = new Ship(itinerary);
-        const controller = new Controller(ship);
+        
+        const itinerary = new Itinerary([]);
+        let ship;
+        let controller;
 
-        controller.renderPorts(itinerary.ports);
-        controller.renderShip();
     </script>
 </body>
 </html>
