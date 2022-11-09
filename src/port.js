@@ -4,7 +4,6 @@
         this.ships = [];
     };
 
-
     Port.prototype = {
         addShip(ship) {
             this.ships.push(ship);
@@ -15,7 +14,7 @@
         }
     };
 
-    //if module and module.exports both exist (i.e. we are in the Node.js environment) 
+    // if module and module.exports both exist (i.e. we are in the Node.js environment) 
     // then we export Port from the module, 
     // otherwise we attach the Port object to the window object
     if (typeof module !== 'undefined' && module.exports) {

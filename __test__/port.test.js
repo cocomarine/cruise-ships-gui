@@ -9,7 +9,7 @@ describe('Port', () => {
         artemis = jest.fn();
         voyage = jest.fn();
         dover = new Port('Dover');
-    })
+    });
     describe('with ships and ports', () => {
         it('instantiate a port object', () => {
             expect(dover).toBeInstanceOf(Object);
@@ -25,6 +25,7 @@ describe('Port', () => {
 
         it('add ship to port', () => {    
             dover.addShip(artemis);
+            
             expect(dover.ships).toContain(artemis);
         });
 

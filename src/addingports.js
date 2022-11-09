@@ -4,7 +4,6 @@ const setItinerary = document.querySelector('#itin-button')
 const eMsg = document.querySelector('#error-message');
 
 addPort.addEventListener('click', (event) => {
-
     if (inputPort.value == '') {
         eMsg.innerHTML = 'Input port name.';
         setTimeout(() => {
@@ -19,7 +18,6 @@ addPort.addEventListener('click', (event) => {
 });
 
 setItinerary.addEventListener('click', (event) => {
-    
     if (itinerary.ports.length == 0) {
         eMsg.innerHTML = 'Input ports before setting itinerary.'
         setTimeout(() => {

@@ -7,7 +7,7 @@ describe('Ship', () => {
     let ship;
     
     beforeEach(() => {
-        dover ={
+        dover = {
             addShip: jest.fn(),
             removeShip: jest.fn(),
             name: 'Dover',
@@ -53,13 +53,13 @@ describe('Ship', () => {
 
         it('sets a previous port property on the ship to the current port', () => {
             ship.setSail();
+
             expect(ship.currentPort).toBeNull();
         });
 
         it('throws an error when sailing further than the last port in itinerary', () => {
             ship.setSail();
             ship.dock();
-    
     
             expect(() => ship.setSail()).toThrow('Reached end of itinerary');
         });

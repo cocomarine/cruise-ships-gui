@@ -9,6 +9,7 @@ describe('Itinerary constructor', () => {
         const dover = jest.fn();
         const portsmouth = jest.fn();
         const itin = new Itinerary([dover, portsmouth]);
+        
         expect(itin.ports).toEqual([dover, portsmouth]);
     });
 });
